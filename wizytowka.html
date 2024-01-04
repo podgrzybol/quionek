@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Wizytówka</title>
+    <meta charset="UTF-8">
+    <meta name="Description" content="strona internetowa">
+    <meta name="Keywords" content="html">
+    <meta name="Robots" content="index">
+    <link rel="stylesheet" href="style.css" type="text/css">
+	<link rel="icon" href="logencja.jpg" type="image/x-icon">
+	<link rel="shortcut icon" href="logencja.jpg" type="image/x-icon">
+    <script type="text/javascript" src="skrypt.js"></script>
+    <style>
+        body {
+            text-align: center;
+            font-family: 'Arial';
+            margin: 50px;
+            transition: background-color 0.4s ease-in-out;
+        }
+
+        h1, h2, p {
+            color: black;
+        }
+
+        #przyciskDoKoloru {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: green;
+            color: black;
+            border-radius: 5px;
+        }
+
+        #przyciskDoCzcionki {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            background-color: blue;
+            color: black;
+            border-radius: 5px;
+        }
+
+        #ja {
+            width: 150px;
+            height: 150px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        #footer {
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			background-color: #2c3e50;
+			padding: 20px;
+			text-align: center;
+			color: #ecf0f1;
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana;
+			box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+		}
+
+		#linki {
+			margin-top: 10px;
+			text-align: center;
+		}
+
+		#linki a {
+			margin: 0 10px;
+			text-decoration: none;
+			color: #ecf0f1;
+			font-size: 16px;
+			transition: color 0.3s ease-in-out;
+		}
+
+		#linki a:hover {
+			color: #3498db;
+		}
+
+		#footer p {
+			margin-top: 10px;
+			font-size: 14px;
+		}
+
+        #dodajLink {
+            padding: 5px 10px;
+            margin: 0 5px;
+            font-size: 14px;
+            cursor: pointer;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+        }
+		
+    </style>
+</head>
+<body>
+    <img id="ja" src="chad.jpg" alt="ikona">
+
+    <h1>Kacper Chachulski</h1>
+    <h2>Klasa 1L</h2>
+    <p>Witaj na mojej stronie a także wizytówce!</p>
+	<p>Mam na imię Kacper. Mam 15 lat i uczęszczam do Zespołu Szkół Elektryczno-Elektronicznych im. Prof. Janusza Groszkowskiego w Radomsku. Interesuję się piłką nożną, kosmosem, astronomią i obserwowaniem nocnego nieba. W wolnym czasie gram w gry oraz chodzę na siłownię.</p>
+
+    <button id="przyciskDoKoloru" onclick="zmienKolor()">Zmień kolor</button>
+    <button id="przyciskDoCzcionki" onclick="zmienTrybCzcionki()">Zmień tryb czcionki</button>
+
+    <footer>
+        <div id="footer">
+			<div id="linki">
+			<a href="https://zse-e.edu.pl/Web/Start.html">Szkoła</a>
+			<a href="https://pl-pl.facebook.com/panaceumradomsko/">Siłownia</a>
+			<a href="https://developer.mozilla.org/en-US/">Pomoc</a>
+			<a href="https://stackoverflow.com/">Inne</a>
+		</div>
+        <p>Wszystkie prawa zastrzeżone &copy; 2024</p>
+    </footer>
+
+    <script>
+        function zmienKolor() {
+            const kolor = generujLosowyKolor();
+            document.body.style.backgroundColor = kolor;
+        }
+
+        function generujLosowyKolor() {
+            const letters = '0123456789ABCDEF';
+            let kolor = '#';
+            for (let i = 0; i < 6; i++) {
+                kolor += letters[Math.floor(Math.random() * 16)];
+            }
+            return kolor;
+        }
+
+        function zmienTrybCzcionki() {
+            const aktualnyTryb = document.body.style.fontFamily;
+            const nowyTryb = (aktualnyTryb == 'Arial') ? 'Verdana, Geneva' : 'Arial';
+            document.body.style.fontFamily = nowyTryb;
+        }
+    </script>
+</body>
+</html>
